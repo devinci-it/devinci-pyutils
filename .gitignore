@@ -101,7 +101,7 @@ ENV/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
+.idea
 # Pyre type checker
 .pyre/
 
