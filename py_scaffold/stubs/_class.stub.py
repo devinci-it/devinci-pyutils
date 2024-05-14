@@ -1,3 +1,4 @@
+'''
 """
 
 A brief description of the class.
@@ -42,3 +43,4 @@ class {class_name}{parent_class}:
         """
         methods = [func for func in dir(self) if callable(getattr(self, func)) and not func.startswith("__")]
         return methods
+'''

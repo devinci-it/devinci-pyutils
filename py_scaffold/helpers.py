@@ -1,6 +1,10 @@
+import re
 def camel_case(s):
     """Converts a string to CamelCase."""
-    return ''.join(word.capitalize() for word in s.split('_'))
+    if '_' not in s:
+        words = re.findall('[A-Z][a-z]*', s)
+        return ''.join(word.capitalize() for word in words)
+    return ''.join(word.capitalize() if not word.isupper() else word for word in s.split('_'))
 
 def snake_case(s):
     """Converts a string to snake_case."""

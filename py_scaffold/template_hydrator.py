@@ -3,8 +3,11 @@ import sys
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-with open(f'{SCRIPT_DIR}/_class.stub.py','r') as stub:
-    TEMPLATE = stub.read()
+with open(f'{SCRIPT_DIR}/stubs/_class.stub.py','r') as stub:
+    CLASS_TEMPLATE = stub.read().rstrip("\'\'\'").lstrip("\'\'\'")
+
+with open(f'{SCRIPT_DIR}/stubs/_wiki.stub.py','r') as stub:
+    WIKI_TEMPLATE = stub.read().rstrip("\"\"\"").lstrip("\"\"\"")
 
 
 def generate_attributes_docstring(attributes):
@@ -66,7 +69,7 @@ def generate_content(class_name, parent_class, attributes):
     init_body = generate_init_body(attributes)
     attributes_properties = generate_attributes_properties(attributes)
 
-    return TEMPLATE.format(
+    return CLASS_TEMPLATE.format(
         class_name=class_name,
         parent_class=parent_class,
         attributes_docstring=attributes_docstring,
