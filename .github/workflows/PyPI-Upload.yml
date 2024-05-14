@@ -38,7 +38,7 @@ jobs:
         if git show-ref --tags --quiet; then
           TAG=$(git describe --abbrev=0 --tags) # Get latest tag
         else
-          TAG="v0.1.0"  # Default tag if no tags exist
+          TAG="v1.0.0"  # Default tag if no tags exist
         fi
         sed -i "s/version='[^']*'/version='$TAG'/" setup.py
 
