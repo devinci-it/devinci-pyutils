@@ -34,3 +34,18 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - List any features or functionalities that were removed.
+
+
+## [1.0.1] : WIP
+
+### Added
+- helpers.py contains utility functions. 
+- template_hydrator.py contains functions for generating different segments of the class template. 
+- main.py contains the main script logic, argument parsing, and file creation functions.
+
+### Features
+- Added support for nested package creation.
+- Implemented inheritance feature for specifying parent classes.
+- Improved attribute handling for class creation.
+- Added command-line interface for user interaction.
+- Enhanced file structure creation for packages.

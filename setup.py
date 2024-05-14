@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='devinci-pyutils',
-    version='1.0.0',
+    version='1.1.0',
     author='devinci-it',
     description='Collection of Python utility modules for developers.',
     long_description=open('README.md').read(),
@@ -12,5 +12,4 @@ setup(
     packages=find_packages(),
     python_requires='>=3.6',
     setup_requires=['setuptools', 'wheel'],
-
 )
