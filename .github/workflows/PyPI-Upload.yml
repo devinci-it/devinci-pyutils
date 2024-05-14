@@ -12,11 +12,11 @@ permissions:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
@@ -33,12 +33,18 @@ jobs:
         echo "Contents of requirements.txt:"
         cat requirements.txt
 
-    - name: Update version in setup.py
+    - name: Check if tag exists
       run: |
-        TAG=$(git describe --abbrev=0 --tags) # Get latest tag
+        if git show-ref --tags --quiet; then
+          TAG=$(git describe --abbrev=0 --tags) # Get latest tag
+        else
+          TAG="v0.1.0"  # Default tag if no tags exist
+        fi
         sed -i "s/version='[^']*'/version='$TAG'/" setup.py
+
     - name: Build package
       run: python setup.py sdist bdist_wheel
+
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
